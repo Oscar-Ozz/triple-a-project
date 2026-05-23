@@ -1,0 +1,232 @@
+/* --- TRIPLE A WORLDWIDE: SISTEMA DE DISEÑO INTEGRAL --- */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;1,900&display=swap');
+
+:root {
+  --aaa-red: #D42B2B;
+  --aaa-black: #0a0a0a;
+  --aaa-card: #111111;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RESET Y COMPORTAMIENTO */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; } /* Habilita el salto suave entre secciones */
+body { 
+  background-color: var(--white); 
+  font-family: 'Barlow Condensed', sans-serif; 
+  color: var(--aaa-black);
+  overflow-x: hidden;
+}
+
+/* NAVBAR PROFESIONAL CON BUSCADOR Y ADMIN */
+.navbar {
+  background: #000;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid var(--aaa-red);
+}
+
+.nav-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  color: var(--white);
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.nav-brand span { color: var(--aaa-red); }
+
+.nav-content-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;
+}
+
+.nav-menu { display: flex; gap: 1.5rem; }
+.nav-item {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+.nav-item:hover { color: var(--aaa-red); }
+
+/* BUSCADOR INTEGRADO */
+.search-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #333;
+  padding: 6px 12px;
+  color: white;
+  font-family: 'Barlow Condensed';
+  outline: none;
+  width: 160px;
+  transition: var(--transition);
+}
+.search-box:focus { width: 220px; border-color: var(--aaa-red); }
+
+/* BOTÓN ADMIN LOGIN */
+.btn-admin {
+  background: var(--aaa-red);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-family: 'Oswald';
+  font-weight: 700;
+  text-transform: uppercase;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-admin:hover { background: white; color: black; }
+
+/* HERO / BANNER PRINCIPAL */
+.hero-banner {
+  background: var(--aaa-black);
+  height: 420px;
+  display: flex;
+  border-bottom: 8px solid var(--aaa-red);
+}
+
+.hero-text {
+  flex: 1;
+  padding: 4rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-family: 'Bebas Neue';
+  font-size: 5.5rem;
+  line-height: 0.85;
+  font-style: italic;
+}
+.hero-title span { color: var(--aaa-red); }
+
+/* SECCIONES Y CONTENEDOR */
+.main-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 5rem 2rem;
+}
+
+.section-head {
+  margin-bottom: 3.5rem;
+  border-left: 12px solid var(--aaa-red);
+  padding-left: 20px;
+  scroll-margin-top: 110px; /* Evita que el navbar tape el título al scrollear */
+}
+.section-head h2 {
+  font-family: 'Bebas Neue';
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+/* GRID DE NOTICIAS */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 6rem;
+}
+
+.news-card {
+  background: white;
+  border: 1px solid #eee;
+  transition: var(--transition);
+}
+.news-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.news-img { width: 100%; height: 210px; object-fit: cover; }
+.news-body { padding: 1.5rem; }
+
+/* GRID DE LUCHADORES (TARJETAS COMPACTAS) */
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.wrestler-card {
+  background: var(--aaa-card);
+  color: white;
+  border-top: 6px solid var(--aaa-red);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.wrestler-img-box { height: 360px; overflow: hidden; }
+.wrestler-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+.wrestler-card:hover .wrestler-img-box img { transform: scale(1.1); }
+
+.wrestler-info { padding: 2rem; text-align: center; }
+.wrestler-name { font-family: 'Bebas Neue'; font-size: 2.6rem; letter-spacing: 1px; }
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #333;
+}
+.stat-val { color: var(--aaa-red); font-family: 'Oswald'; font-weight: 700; font-size: 1.4rem; }
+.stat-lab { font-size: 0.7rem; color: #777; text-transform: uppercase; }
+
+.btn-profile {
+  background: var(--aaa-red);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-family: 'Oswald';
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  padding: 6rem 2rem;
+  text-align: center;
+  border-top: 6px solid var(--aaa-red);
+  color: white;
+}
+
+/* Overlay para que el login flote sobre la página */
+.login-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none; border: none;
+  color: white; font-size: 1.5rem; cursor: pointer;
+}
+
+.admin-alert {
+  background: var(--aaa-red);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Oswald';
+  margin-bottom: 2rem;
+}
