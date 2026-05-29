@@ -1,11 +1,10 @@
-# config.py
 import mysql.connector
 
 def get_connection():
     return mysql.connector.connect(
-        host="127.0.0.1", 
+        host="db-server",      
         user="root",
-        password="12345", 
-        database="testdb",
+        password="rootpassword", 
+        database="inventario_db",
         port=3306 
     )

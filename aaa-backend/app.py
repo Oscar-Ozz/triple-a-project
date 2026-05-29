@@ -85,11 +85,11 @@ def actualizar_item(id_item):
         file = request.files.get('imagen')
         img_url = request.form.get('img_url')
 
-        # Si suben un archivo físico, se guarda y se genera la URL
+        # Si suben un archivo físico, se guarda y se genera la URL con la IP de producción
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_url = f"http://localhost:5000/uploads/{filename}"
+            img_url = f"http://34.51.56.240:5000/uploads/{filename}"
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -141,10 +141,11 @@ def save_with_image():
         file = request.files.get('imagen')
         img_url = request.form.get('img_url') 
 
+        # Si suben un archivo físico, se guarda y se genera la URL con la IP de producción
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_url = f"http://localhost:5000/uploads/{filename}"
+            img_url = f"http://34.51.56.240:5000/uploads/{filename}"
 
         conn = get_connection()
         cursor = conn.cursor()
@@ -205,6 +206,7 @@ def eliminar_item(id_item):
         return jsonify({'mensaje': 'Registro eliminado'})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 @app.route('/usuarios', methods=['GET'])
 def obtener_usuarios():
